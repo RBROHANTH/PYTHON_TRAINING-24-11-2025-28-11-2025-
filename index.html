@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Dashboard</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+<h1>Student Dashboard</h1>
+
+<button onclick="downloadCSV()">Download CSV</button>
+
+<h2>Insights</h2>
+<p>Total Students: <span id="total"></span></p>
+<p>At-Risk Students: <span id="atrisk"></span></p>
+<p>Percent At-Risk: <span id="pct"></span>%</p>
+
+<h2>Student Scores Chart</h2>
+<canvas id="scoreChart" width="400" height="200"></canvas>
+
+<script>
+// fetch insights
+fetch('/api/insights').then(res => res.json()).then(data=>{
+    document.getElementById('total').innerText = data.total_students
+    document.getElementById('atrisk').innerText = data.at_risk
+    document.getElementById('pct').innerText = data.pct_at_risk
+})
+
+// fetch students for chart
+fetch('/api/students').then(res=>res.json()).then(data=>{
+    const labels = data.map(s=>s.name)
+    const scores = data.map(s=>s.final_score)
+    const ctx = document.getElementById('scoreChart').getContext('2d')
+    new Chart(ctx,{
+        type:'bar',
+        data:{labels:labels,datasets:[{label:'Final Score',data:scores,backgroundColor:'skyblue'}]},
+        options:{scales:{y:{beginAtZero:true,max:100}}}
+    })
+})
+
+// download CSV
+function downloadCSV(){ window.location='/reports/download_csv' }
+</script>
+</body>
+</html>

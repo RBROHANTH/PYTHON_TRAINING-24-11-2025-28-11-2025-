@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test HTML Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            line-height: 1.6;
+            background-color: #f4f4f4;
+        }
+        .header {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 1rem;
+            border-radius: 5px;
+        }
+        .container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 5px;
+            margin: 20px 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .form-group {
+            margin: 15px 0;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        input, textarea, select {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+            box-sizing: border-box;
+        }
+        button {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .table-container {
+            overflow-x: auto;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        .footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #333;
+            color: white;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header class="header">
+        <h1>Test HTML Page</h1>
+        <p>You can also set it to: <button onclick="window.location.href='/users'">Go to /users</button></p>
+        <p>A comprehensive HTML test page with various elements</p>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="container">
+        <ul>
+            <li><a href="#forms">Forms</a></li>
+            <li><a href="#tables">Tables</a></li>
+            <li><a href="#media">Media</a></li>
+            <li><a href="#lists">Lists</a></li>
+        </ul>
+    </nav>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Text Content Section -->
+        <section class="container">
+            <h2>Text Elements</h2>
+            <p>This is a <strong>bold text</strong> and this is <em>italic text</em>. Here's a <mark>highlighted text</mark>.</p>
+            <p>Current URL: <span id="current-url">Loading...</span></p>
+            <p>You can also set it to: <button onclick="window.location.href='/home'">Go to /home</button></p>
+            <blockquote>
+                "This is a blockquote. It's used to highlight quoted text from another source."
+            </blockquote>
+            <p>Here's some <code>inline code</code> and a <a href="https://www.example.com" target="_blank">link to example.com</a>.</p>
+        </section>
+
+        <!-- Forms Section -->
+        <section id="forms" class="container">
+            <h2>Form Elements</h2>
+            <form>
+                <div class="form-group">
+                    <label for="name">Full Name:</label>
+                    <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" placeholder="Enter your email" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="phone">Phone:</label>
+                    <input type="tel" id="phone" name="phone" placeholder="Enter your phone number">
+                </div>
+
+                <div class="form-group">
+                    <label for="birthdate">Birth Date:</label>
+                    <input type="date" id="birthdate" name="birthdate">
+                </div>
+
+                <div class="form-group">
+                    <label for="gender">Gender:</label>
+                    <select id="gender" name="gender">
+                        <option value="">Select Gender</option>
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Hobbies:</label>
+                    <input type="checkbox" id="reading" name="hobbies" value="reading">
+                    <label for="reading">Reading</label><br>
+                    <input type="checkbox" id="sports" name="hobbies" value="sports">
+                    <label for="sports">Sports</label><br>
+                    <input type="checkbox" id="music" name="hobbies" value="music">
+                    <label for="music">Music</label>
+                </div>
+
+                <div class="form-group">
+                    <label>Preferred Contact:</label>
+                    <input type="radio" id="email-contact" name="contact" value="email">
+                    <label for="email-contact">Email</label><br>
+                    <input type="radio" id="phone-contact" name="contact" value="phone">
+                    <label for="phone-contact">Phone</label>
+                </div>
+
+                <div class="form-group">
+                    <label for="message">Message:</label>
+                    <textarea id="message" name="message" rows="5" placeholder="Enter your message here..."></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="file">Upload File:</label>
+                    <input type="file" id="file" name="file">
+                </div>
+
+                <button type="submit">Submit Form</button>
+                <button type="reset">Reset Form</button>
+            </form>
+        </section>
+
+        <!-- Tables Section -->
+        <section id="tables" class="container">
+            <h2>Table Example</h2>
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Department</th>
+                            <th>Salary</th>
+                            <th>Join Date</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>001</td>
+                            <td>John Smith</td>
+                            <td>IT</td>
+                            <td>$75,000</td>
+                            <td>2023-01-15</td>
+                        </tr>
+                        <tr>
+                            <td>002</td>
+                            <td>Sarah Johnson</td>
+                            <td>HR</td>
+                            <td>$65,000</td>
+                            <td>2023-02-20</td>
+                        </tr>
+                        <tr>
+                            <td>003</td>
+                            <td>Mike Davis</td>
+                            <td>Finance</td>
+                            <td>$80,000</td>
+                            <td>2023-03-10</td>
+                        </tr>
+                        <tr>
+                            <td>004</td>
+                            <td>Lisa Wilson</td>
+                            <td>Marketing</td>
+                            <td>$70,000</td>
+                            <td>2023-04-05</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Lists Section -->
+        <section id="lists" class="container">
+            <h2>List Examples</h2>
+            
+            <h3>Ordered List (Programming Languages)</h3>
+            <ol>
+                <li>Python</li>
+                <li>JavaScript</li>
+                <li>Java</li>
+                <li>C++</li>
+                <li>C#</li>
+            </ol>
+
+            <h3>Unordered List (Web Technologies)</h3>
+            <ul>
+                <li>HTML5</li>
+                <li>CSS3</li>
+                <li>JavaScript</li>
+                <li>React</li>
+                <li>Node.js</li>
+            </ul>
+
+            <h3>Description List</h3>
+            <dl>
+                <dt>HTML</dt>
+                <dd>HyperText Markup Language - used for structuring web content</dd>
+                <dt>CSS</dt>
+                <dd>Cascading Style Sheets - used for styling web pages</dd>
+                <dt>JavaScript</dt>
+                <dd>Programming language for adding interactivity to web pages</dd>
+            </dl>
+        </section>
+
+        <!-- Media Section -->
+        <section id="media" class="container">
+            <h2>Media Elements</h2>
+            
+            <h3>Image Placeholder</h3>
+            <img src="https://via.placeholder.com/300x200" alt="Placeholder Image" style="max-width: 100%; height: auto;">
+            
+            <h3>Video Placeholder</h3>
+            <video width="320" height="240" controls>
+                <source src="movie.mp4" type="video/mp4">
+                <source src="movie.ogg" type="video/ogg">
+                Your browser does not support the video tag.
+            </video>
+
+            <h3>Audio Placeholder</h3>
+            <audio controls>
+                <source src="audio.ogg" type="audio/ogg">
+                <source src="audio.mp3" type="audio/mpeg">
+                Your browser does not support the audio element.
+            </audio>
+        </section>
+
+        <!-- Additional Elements -->
+        <section class="container">
+            <h2>Additional Elements</h2>
+            
+            <details>
+                <summary>Click to expand/collapse</summary>
+                <p>This is hidden content that can be toggled by clicking the summary.</p>
+            </details>
+
+            <h3>Progress Bar</h3>
+            <label for="progress">Progress:</label>
+            <progress id="progress" value="70" max="100">70%</progress>
+
+            <h3>Meter</h3>
+            <label for="meter">Disk Usage:</label>
+            <meter id="meter" value="0.6" min="0" max="1">60%</meter>
+
+            <h3>Code Block</h3>
+            <pre><code>
+function greet(name) {
+    return "Hello, " + name + "!";
+}
+
+console.log(greet("World"));
+            </code></pre>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2025 Test HTML Page. Created for testing purposes.</p>
+        <p>Contact: test@example.com | Phone: (123) 456-7890</p>
+        <button onclick="window.location.href='/home'">Go to home </button>
+        <p>{{location}}</p>
+    </footer>
+
+    <script>
+        // Simple JavaScript for interactivity
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('Test HTML page loaded successfully!');
+            
+            // Display the actual current URL value
+            const currentUrlElement = document.getElementById('current-url');
+            if (currentUrlElement) {
+                currentUrlElement.textContent = window.location.href;
+            }
+            
+            // Add form submission handler
+            const form = document.querySelector('form');
+            if (form) {
+                form.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    alert('Form submitted! (This is just a test)');
+                });
+            }
+        });
+    </script>
+</body>
+</html>
